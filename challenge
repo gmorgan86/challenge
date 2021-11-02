@@ -1,0 +1,57 @@
+1)
+SELECT COUNT(name) FROM city WHERE countrycode="usa";
+
+2)
+SELECT name, population, lifeexpectancy
+FROM country
+WHERE name= 'argentina';
+
+3)
+SELECT name, LifeExpectancy 
+FROM country
+WHERE lifeexpectancy=(
+	SELECT MAX(lifeexpectancy)
+    from country
+    Limit 1
+    ); 
+    
+5)
+SELECT language
+FROM countrylanguage
+JOIN country ON countrycode=code
+WHERE region='southeast asia';
+
+6)
+SELECT * FROM city WHERE name LIKE 'f%' LIMIT 25;
+
+8)
+SELECT name, population
+FROM country
+WHERE population = (
+   select MIN(population)
+   from country
+
+   ) ;
+   
+9)
+SELECT COUNT(name) from country;
+
+
+10)
+SELECT * FROM country ORDER BY surfacearea DESC LIMIT 10;
+
+12)
+SELECT name, code
+FROM country
+WHERE headofstate='Elisabeth II';
+
+13)
+SELECT name, surfacearea, population, surfacearea/population AS ratio FROM country ORDER BY ratio DESC limit 10;
+
+14)
+SELECT distinct language 
+FROM countrylanguage;
+
+15)
+
+SELECT name, GNP FROM country ORDER BY GNP DESC LIMIT 10;
