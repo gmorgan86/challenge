@@ -1,0 +1,127 @@
+1) 
+SELECT first_name, last_name
+FROM actor ORDER BY first_name;
+
+2)
+SELECT first_name, last_name 
+FROM actor
+WHERE first_name LIKE '%John';
+
+3)
+SELECT first_name, last_name 
+FROM actor
+WHERE last_name LIKE '%Neeson';
+
+4)
+
+5)
+SELECT description 
+FROM film 
+WHERE film_id=100;
+
+6)
+SELECT title, rating 
+FROM film 
+WHERE rating='R';
+
+7)
+SELECT title, rating 
+FROM film 
+WHERE rating!='R';
+
+8)
+SELECT title, length 
+FROM film 
+WHERE length=(
+	SELECT MIN(length)
+    	FROM film 
+	ORDER BY length ASC LIMIT 10);
+
+9)
+SELECT title, length 
+FROM film 
+WHERE length=(
+	SELECT MAX(length)
+    from film ORDER BY length DESC);
+
+10)
+
+SELECT title, special_features 
+FROM film 
+WHERE special_features LIKE '%deleted scenes';
+
+11)
+SELECT first_name, last_Name, COUNT(last_name)
+FROM actor
+GROUP BY last_Name
+HAVING COUNT(last_Name) = 1
+ORDER BY last_name DESC;
+
+12)
+
+SELECT first_name, last_Name, COUNT(last_name)
+FROM actor
+GROUP BY last_Name
+HAVING COUNT(last_Name)>1 ORDER BY last_name DESC;
+
+13)
+SELECT FA.actor_id, count(*) AS number_of_films, A.first_name, A.last_name  
+FROM film_actor FA
+JOIN actor AS A ON A.actor_id=FA.actor_id
+GROUP BY actor_id ORDER BY count(*) DESC LIMIT 1;
+
+14)
+
+15)
+SELECT AVG(length) FROM film;
+
+16)
+
+17)
+
+SELECT title, description 
+FROM film
+WHERE description LIKE '%robot%';
+
+18)
+
+SELECT title, release_year FROM film
+WHERE release_year=2010;
+
+19)
+
+SELECT title FROM film f
+JOIN film_category fc ON f.film_id=fc.film_id
+JOIN category c ON fc.category_id=c.category_id
+WHERE c.category_id=11;
+
+20)
+
+SELECT first_name, last_name 
+FROM staff 
+WHERE staff_id=2;
+
+21)
+
+SELECT title, first_name, last_name FROM film f
+JOIN film_actor fa ON f.film_id=fa.film_id
+JOIN actor a ON fa.actor_id=a.actor_id
+WHERE first_name='Fred' AND last_name='Costner';
+
+22)
+SELECT COUNT(DISTINCT country) FROM country;
+
+23) 
+
+SELECT name FROM language 
+ORDER BY name DESC; 
+
+24) 
+
+SELECT first_name, last_name 
+FROM actor
+WHERE last_name LIKE '%son' 
+ORDER BY first_name ASC;
+
+25)
+
